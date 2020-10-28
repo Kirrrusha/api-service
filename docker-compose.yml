@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_DB: blog_db
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: qwertyasd123
+      POSTGRES_PASSWORD: root
   worker:
     stdin_open: true
     container_name: blog_worker
@@ -17,7 +17,7 @@ services:
       context: ./
       target: dev
     volumes:
-      - ./blog_worker:/app
+      - ./:/app
     ports:
       - 3030:3000
     command: npm run start:dev
