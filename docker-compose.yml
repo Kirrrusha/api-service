@@ -7,17 +7,17 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: quiz
+      POSTGRES_DB: blog_db
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_PASSWORD: qwertyasd123
   worker:
     stdin_open: true
-    container_name: worker
+    container_name: blog_worker
     build:
       context: ./
       target: dev
     volumes:
-      - ./worker:/app
+      - ./blog_worker:/app
     ports:
       - 3030:3000
     command: npm run start:dev
